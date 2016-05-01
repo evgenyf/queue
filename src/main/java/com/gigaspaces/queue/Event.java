@@ -22,4 +22,23 @@ public class Event{
     public Op getOperation() {
         return operation;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Event event = (Event) o;
+
+        if (id != event.id) return false;
+        return operation == event.operation;
+
+    }
+
+    @Override
+    public int hashCode() {
+        int result = (int) id;
+        result = 31 * result + operation.hashCode();
+        return result;
+    }
 }
